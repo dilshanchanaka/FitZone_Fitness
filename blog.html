@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone Blog</title>
+    <nav>
+        <a href="index.html" class="home-button">Home</a>
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2A2E34;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #FFFFFF;
+            color: #2A2E34;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        .home-button {
+            display: inline-block;
+            color: #2A2E34;
+            background-color: #F5B301;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 2px solid #F5B301;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #2A2E34;
+            color: #F5B301;
+        }
+
+        .featured {
+            text-align: center;
+            padding: 30px;
+            background-color: #2A2E34;
+        }
+
+        .featured img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .featured h2 {
+            color: #F5B301;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: #1F2126;
+        }
+
+        .categories a {
+            color: #F5B301;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 2px solid #F5B301;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .categories a:hover {
+            background-color: #F5B301;
+            color: #2A2E34;
+        }
+
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .blog-card {
+            background-color: #1F2126;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .blog-card-content {
+            padding: 15px;
+        }
+
+        .blog-card-content h3 {
+            color: #F5B301;
+            margin-bottom: 10px;
+        }
+
+        .blog-card-content p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .blog-card-content a {
+            color: #F5B301;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #1F2126;
+            color: #F5B301;
+            padding: 15px;
+        }
+    </style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FitZone Blog</h1>
+        <p>Your Guide to a Healthier Lifestyle</p>
+    </header>
+
+    <section class="featured">
+        <img src="images/Featured Blog.jpg" alt="Featured Blog">
+        <h2>Top 5 Workout Routines to Boost Your Fitness</h2>
+        <p>Discover effective workout plans designed by our certified trainers to help you achieve your fitness goals. <a href="blogposts/certifiedtrainers.html">Read More</a></p>
+    </section>
+
+    <div class="categories">
+        <a href="#">Workout Routines</a>
+        <a href="#">Healthy Recipes</a>
+        <a href="#">Meal Plans</a>
+        <a href="#">Success Stories</a>
+        <a href="#">Certified Trainers</a>
+    </div>
+
+    <section class="blog-posts">
+        <div class="blog-card">
+            <img src="images/workout.jpg" alt="Workout">
+            <div class="blog-card-content">
+                <h3>Full-Body Workout for Beginners</h3>
+                <p>Kickstart your fitness journey with this beginner-friendly full-body workout routine.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <img src="images/Recipe.jpeg" alt="Recipe">
+            <div class="blog-card-content">
+                <h3>5-Minute Protein Smoothies</h3>
+                <p>Quick and healthy smoothie recipes to fuel your workouts.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <img src="images/Meal Plan.jpeg" alt="Meal Plan">
+            <div class="blog-card-content">
+                <h3>7-Day Meal Plan for Weight Loss</h3>
+                <p>A balanced and nutritious meal plan crafted by our certified nutritionists.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <img src="images/Success Story.jpg" alt="Success Story">
+            <div class="blog-card-content">
+                <h3>John's 50lb Weight Loss Journey</h3>
+                <p>Get inspired by John's transformation story and his fitness journey with FitZone.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 FitZone Fitness Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>

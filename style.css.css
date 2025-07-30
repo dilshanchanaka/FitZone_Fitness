@@ -1,0 +1,193 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data and sanitize inputs
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+
+    // Database connection credentials
+    $servername = "localhost";  // Replace with your server's name
+    $username = "root";         // Replace with your database username
+    $password = "";             // Replace with your database password
+    $dbname = "fitness_center"; // Replace with your database name
+
+    // Connect to the database
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // SQL query to insert form data
+    $sql = "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)";
+
+    // Prepare statement
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $name, $email, $message);
+
+    // Execute and check
+    if ($stmt->execute()) {
+        echo "<p>Thank you for contacting us, $name! Your message has been successfully submitted.</p>";
+
+        // Optionally send an email notification
+        $to = "info@fitzone.com"; // Replace with FitZone's email
+        $subject = "New Contact Message from $name";
+        $body = "Name: $name\nEmail: $email\nMessage:\n$message";
+        $headers = "From: $email";
+
+        mail($to, $subject, $body, $headers);
+    } else {
+        echo "<p>Error: " . $stmt->error . "</p>";
+    }
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
+}
+?>
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: url('images/backg.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background-color: #2A2E34;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo {
+    flex: 0 0 auto;
+    margin-right: auto;
+    padding-left: 20px;
+}
+
+.logo img {
+    max-height: 40px; /* Adjust to make the logo smaller */
+    width: auto;      /* Maintains aspect ratio */
+    display: block;   /* Ensures proper alignment */
+}
+
+header h1 {
+    font-size: 2em;
+    color: #F5B301;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #F5B301;
+    color: #2A2E34;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: rgba(42, 46, 52, 0.8);
+    border-radius: 10px;
+}
+
+.hero h2 {
+    font-size: 2em;
+    color: #F5B301;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #F5B301;
+    color: #2A2E34;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d29c02;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2A2E34;
+    width: 100%;
+    color: #F5B301;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

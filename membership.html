@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Plans</title>
+    <link rel="stylesheet" href="Membership.css">
+    <style>
+        /* Styling for the popup form */
+        .popup-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+        .popup-form input, .popup-form select, .popup-form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+        .close-btn {
+            text-align: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Membership Options</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="membership.html">Membership</a>
+            <a href="contact.html">Contact</a>
+            
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Choose Your Plan</h2>
+        <p>We have flexible membership plans to fit your lifestyle.</p>
+    </section>
+
+    <!-- Membership Plans Section -->
+    <section class="membership-plans">
+        <div class="plan-card">
+            <h3>Basic Plan</h3>
+            <p>Access to gym facilities from 9 am to 5 pm, Monday to Friday.</p>
+            <p class="price">LKR 5,000/month</p>
+            <button class="signup-button" onclick="openForm('Basic Plan')">Sign Up</button>
+        </div>
+        
+        <div class="plan-card">
+            <h3>Standard Plan</h3>
+            <p>Access to gym facilities from 6 am to 10 pm, 7 days a week.</p>
+            <p class="price">LKR 8,000/month</p>
+            <button class="signup-button" onclick="openForm('Standard Plan')">Sign Up</button>
+        </div>
+        
+        <div class="plan-card">
+            <h3>Premium Plan</h3>
+            <p>24/7 access, personal training sessions, and access to special classes.</p>
+            <p class="price">LKR 12,000/month</p>
+            <button class="signup-button" onclick="openForm('Premium Plan')">Sign Up</button>
+        </div>
+    </section>
+
+    <!-- Popup Registration Form -->
+    <div class="popup-form" id="registrationForm">
+        <div class="close-btn" onclick="closeForm()">✖</div>
+        <form action="process_registration.php" method="post">
+            <h3>Membership Registration</h3>
+            <input type="hidden" id="membershipPlan" name="membershipPlan">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+            
+            <label for="startDate">Preferred Start Date:</label>
+            <input type="date" id="startDate" name="startDate" required>
+
+            <label>
+                <input type="checkbox" name="agreement" required> I agree to the terms and conditions.
+            </label>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 FitZone Fitness Center</p>
+    </footer>
+
+    <script>
+        // JavaScript to open and close the popup form
+        function openForm(plan) {
+            document.getElementById("membershipPlan").value = plan;
+            document.getElementById("registrationForm").style.display = "block";
+        }
+        function closeForm() {
+            document.getElementById("registrationForm").style.display = "none";
+        }
+    </script>
+</body>
+</html>
